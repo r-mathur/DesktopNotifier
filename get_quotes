@@ -1,0 +1,9 @@
+import http.client
+
+conn = http.client.HTTPSConnection("quote-garden.herokuapp.com")
+payload = ''
+headers = {}
+conn.request("GET", "/api/v3/quotes/random", payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode("utf-8"))
